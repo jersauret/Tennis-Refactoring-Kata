@@ -7,13 +7,17 @@ class TennisGame1:
 # Boucle de décision imbriquées 
 # découpage en fichiers
 
+# doc de base entrants sortants process
     def __init__(self, player1Name, player2Name):
         self.player1Name = player1Name
         self.player2Name = player2Name
+        # consistence de nommage player1name vs p1
         self.p1points = 0
         self.p2points = 0
+        # objet pour comprendre le métier
 
     def won_point(self, playerName):
+        # fonction mal nommée diff avec action réele: increment player point
         if playerName == "player1":
             self.p1points += 1
         else:
@@ -28,6 +32,8 @@ class TennisGame1:
                 1 : "Fifteen-All",
                 2 : "Thirty-All",
             }.get(self.p1points, "Deuce")
+            # boucle imbriquée
+            # pour gérer le flow du jeu
         elif (self.p1points>=4 or self.p2points>=4):
             minusResult = self.p1points-self.p2points
             if (minusResult==1):
@@ -41,9 +47,11 @@ class TennisGame1:
         else:
             for i in range(1,3):
                 if (i==1):
+                    # Logique incompréhensible
                     tempScore = self.p1points
                 else:
                     result+="-"
+                    # si c'est typé sinon erreur
                     tempScore = self.p2points
                 result += {
                     0 : "Love",
